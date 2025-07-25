@@ -1,9 +1,12 @@
 import { useState, useEffect } from 'react';
 
+type ContainerSize = '3m3' | '5m3' | '7m3' | '10m3';
+type RentalDuration = '1-semana' | '2-semanas' | '1-mes';
+
 const PriceSimulator = () => {
-  const [selectedSize, setSelectedSize] = useState('5m3');
-  const [selectedDuration, setSelectedDuration] = useState('1-semana');
-  const [registrationCount, setRegistrationCount] = useState<number>(147);
+  const [selectedSize, setSelectedSize] = useState<ContainerSize>('5m3');
+  const [selectedDuration, setSelectedDuration] = useState<RentalDuration>('1-semana');
+  const [registrationCount, setRegistrationCount] = useState<number>(100);
   const totalSlots = 200;
 
   const sizes = [
@@ -20,14 +23,14 @@ const PriceSimulator = () => {
   ];
 
   const getPriceRange = () => {
-    const basePrices = {
+    const basePrices: Record<ContainerSize, { min: number; max: number }> = {
       '3m3': { min: 45, max: 65 },
       '5m3': { min: 65, max: 85 },
       '7m3': { min: 85, max: 110 },
       '10m3': { min: 110, max: 140 }
     };
 
-    const multipliers = {
+    const multipliers: Record<RentalDuration, number> = {
       '1-semana': 1,
       '2-semanas': 1.8,
       '1-mes': 3.2
@@ -51,7 +54,7 @@ const PriceSimulator = () => {
         const response = await fetch('/api/stats');
         if (response.ok) {
           const data = await response.json();
-          setRegistrationCount(data.totalRegistrations || 147);
+          setRegistrationCount((data.totalRegistrations || 0) + 100);
         }
       } catch (error) {
         console.error('Error fetching registration count:', error);
@@ -65,7 +68,8 @@ const PriceSimulator = () => {
     <section className="section price-simulator">
       <div className="container">
         <div className="simulator-content">
-          <h2 className="section-title">Simulador de Precios </h2>
+          <h2 className="section-title">Simulador de Precios</h2>
+          <h3 className="section-subtitle-large">Contenedores de Obras</h3>
           <p className="simulator-subtitle">
             Obtén una estimación de precios para contenedores de obras en España
           </p>
@@ -81,7 +85,7 @@ const PriceSimulator = () => {
                       name="size"
                       value={size.value}
                       checked={selectedSize === size.value}
-                      onChange={(e) => setSelectedSize(e.target.value)}
+                      onChange={(e) => setSelectedSize(e.target.value as ContainerSize)}
                     />
                     <div className="option-content">
                       <div className="option-label">{size.label}</div>
@@ -102,7 +106,7 @@ const PriceSimulator = () => {
                       name="duration"
                       value={duration.value}
                       checked={selectedDuration === duration.value}
-                      onChange={(e) => setSelectedDuration(e.target.value)}
+                      onChange={(e) => setSelectedDuration(e.target.value as RentalDuration)}
                     />
                     <span className="duration-label">{duration.label}</span>
                   </label>
