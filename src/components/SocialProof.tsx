@@ -5,7 +5,7 @@ const SocialProof = () => {
   const [recentSignups, setRecentSignups] = useState([
     { name: "Construcciones Madrid S.L.", location: "Madrid", time: "hace 2 horas" },
     { name: "Reformas García", location: "Barcelona", time: "hace 4 horas" },
-    { name: "Particular", location: "Valencia", time: "hace 6 horas" },
+    { name: "Particular", location: "Sevilla  ", time: "hace 6 horas" },
   ]);
 
 
@@ -23,7 +23,7 @@ const SocialProof = () => {
         <div className="social-proof-content">
           <div className="stats-section">
             <div className="main-stat">
-              <div className="stat-number">{registrations}</div>
+              <div className="stat-number">20</div>
               <div className="stat-label">empresas ya registradas</div>
             </div>
             
