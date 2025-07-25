@@ -1,0 +1,225 @@
+---
+---
+
+<section class="section faq">
+  <div class="container">
+    <h2 class="section-title">Preguntas Frecuentes</h2>
+    <div class="faq-container">
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>¿Cuándo estará disponible el servicio?</h3>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>Estimamos lanzar oficialmente en 4-6 semanas. Los registrados recibirán acceso prioritario 48 horas antes del lanzamiento público. Te mantendremos informado del progreso cada semana.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>¿Cómo garantizan el mejor precio?</h3>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>Nuestra plataforma compara automáticamente precios de múltiples proveedores en tiempo real. Si encuentras un precio mejor en otro lugar, lo igualamos. Además, negociamos tarifas preferenciales por volumen.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>¿Qué zonas de Sevilla cubrirán?</h3>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>Cubrimos Sevilla capital y toda el área metropolitana: Dos Hermanas, Alcalá de Guadaíra, Mairena del Aljarafe, Utrera, Coria del Río, La Rinconada y más. La entrega se realiza en 24-48 horas.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>¿Hay algún coste por usar la plataforma?</h3>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>No. Nuestro servicio es completamente gratuito para los usuarios. Los proveedores nos pagan una pequeña comisión, pero esto no afecta el precio final que pagas por el contenedor.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>¿Qué tipos de residuos de obras se pueden depositar?</h3>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>En nuestros contenedores de obras puedes depositar: escombros de construcción, restos de obra, materiales cerámicos, hormigón, ladrillos, azulejos, maderas, metales y materiales inertes. No se permiten residuos peligrosos, amianto, pintura o materiales químicos.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>¿Puedo cancelar o modificar mi reserva?</h3>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>Sí. Puedes cancelar hasta 24 horas antes de la entrega sin coste. Para modificaciones (cambio de fecha, tamaño, etc.), contacta con nosotros y te ayudaremos a gestionar el cambio con el proveedor.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-contact">
+      <h3>¿Tienes más preguntas?</h3>
+      <p>Contáctanos en <a href="mailto:info@containersevilla.es">info@containersevilla.es</a></p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .faq {
+    background: var(--neutral-light);
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--neutral-dark);
+  }
+
+  .faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .faq-item {
+    background: white;
+    margin-bottom: 1rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+  }
+
+  .faq-item:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+  }
+
+  .faq-question {
+    padding: 1.5rem 2rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    transition: background-color 0.3s ease;
+  }
+
+  .faq-question:hover {
+    background: #f8f9fa;
+  }
+
+  .faq-question h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: var(--neutral-dark);
+    font-weight: 600;
+  }
+
+  .faq-toggle {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    font-weight: bold;
+    transition: transform 0.3s ease;
+  }
+
+  .faq-item.active .faq-toggle {
+    transform: rotate(45deg);
+  }
+
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    background: #f8f9fa;
+  }
+
+  .faq-item.active .faq-answer {
+    max-height: 200px;
+    padding: 1.5rem 2rem;
+  }
+
+  .faq-answer p {
+    margin: 0;
+    color: var(--neutral-medium);
+    line-height: 1.6;
+  }
+
+  .faq-contact {
+    text-align: center;
+    margin-top: 3rem;
+    padding: 2rem;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  }
+
+  .faq-contact h3 {
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+  }
+
+  .faq-contact a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .faq-contact a:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 768px) {
+    .section-title {
+      font-size: 2rem;
+    }
+
+    .faq-question {
+      padding: 1rem 1.5rem;
+    }
+
+    .faq-question h3 {
+      font-size: 1.1rem;
+    }
+
+    .faq-item.active .faq-answer {
+      padding: 1rem 1.5rem;
+    }
+
+    .faq-contact {
+      padding: 1.5rem;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const faqItems = document.querySelectorAll('.faq-item');
+    
+    faqItems.forEach(item => {
+      const question = item.querySelector('.faq-question');
+      
+      question.addEventListener('click', () => {
+        const isActive = item.classList.contains('active');
+        
+        // Close all other items
+        faqItems.forEach(otherItem => {
+          otherItem.classList.remove('active');
+        });
+        
+        // Toggle current item
+        if (!isActive) {
+          item.classList.add('active');
+        }
+      });
+    });
+  });
+</script>

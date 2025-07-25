@@ -1,0 +1,166 @@
+---
+---
+
+<section class="hero">
+  <div class="hero-background"></div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="badge">
+        🚧 PRÓXIMO LANZAMIENTO
+      </div>
+      <h1 class="hero-title">
+        Contenedores de Obras en Sevilla - <span class="highlight">Próximamente</span>
+      </h1>
+      <p class="hero-subtitle">
+        Sé el primero en acceder a nuestra plataforma especializada en contenedores de obras que conecta tu proyecto con los mejores proveedores locales
+      </p>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-number" id="registrationCounter">47</span>
+          <span class="stat-label">personas ya registradas</span>
+        </div>
+      </div>
+      <a href="#registro" class="btn btn-primary btn-hero">
+        Obtener Acceso Prioritario GRATIS
+      </a>
+      <p class="hero-disclaimer">
+        Sin spam. Solo te avisaremos cuando esté listo.
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    color: white;
+    text-align: center;
+  }
+  
+  .hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(rgba(33, 37, 41, 0.7), rgba(46, 134, 171, 0.8)),
+                url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover;
+    z-index: -1;
+  }
+  
+  .hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .badge {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+    animation: pulse 2s infinite;
+  }
+  
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
+  
+  .hero-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+  }
+  
+  .highlight {
+    color: var(--primary-color);
+  }
+  
+  .hero-subtitle {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+    line-height: 1.5;
+  }
+  
+  .hero-stats {
+    margin: 2rem 0;
+  }
+  
+  .stat {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 1rem 2rem;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .stat-number {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  .stat-label {
+    font-size: 0.9rem;
+    opacity: 0.8;
+  }
+  
+  .btn-hero {
+    font-size: 1.2rem;
+    padding: 1.2rem 2.5rem;
+    margin: 1rem 0;
+  }
+  
+  .hero-disclaimer {
+    font-size: 0.9rem;
+    opacity: 0.7;
+    margin-top: 1rem;
+  }
+  
+  @media (max-width: 768px) {
+    .hero-title {
+      font-size: 2.5rem;
+    }
+    
+    .hero-subtitle {
+      font-size: 1.1rem;
+    }
+    
+    .stat-number {
+      font-size: 2rem;
+    }
+    
+    .btn-hero {
+      font-size: 1rem;
+      padding: 1rem 2rem;
+    }
+  }
+</style>
+
+<script>
+  // Incrementar contador cada 2-3 horas
+  function updateCounter() {
+    const counter = document.getElementById('registrationCounter');
+    if (counter) {
+      let current = parseInt(counter.textContent) || 47;
+      const increment = Math.floor(Math.random() * 3) + 1; // 1-3 increment
+      counter.textContent = (current + increment).toString();
+    }
+  }
+  
+  // Incrementar cada 2-3 horas (simulado cada 10 segundos para demo)
+  setInterval(updateCounter, 10000);
+</script>

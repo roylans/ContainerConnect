@@ -1,0 +1,226 @@
+---
+---
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>ContainerSevilla</h3>
+        <p>Digitalizando el sector de contenedores en Sevilla</p>
+        <div class="contact-info">
+          <p>📧 <a href="mailto:info@containersevilla.es">info@containersevilla.es</a></p>
+          <p>📱 <a href="tel:+34900000000">+34 900 000 000</a></p>
+        </div>
+      </div>
+
+      <div class="footer-section">
+        <h4>Para Empresas</h4>
+        <ul>
+          <li><a href="#registro">Registro gratuito</a></li>
+          <li><a href="#simulador">Simulador de precios</a></li>
+          <li><a href="mailto:empresas@containersevilla.es">Tarifas especiales</a></li>
+          <li><a href="mailto:soporte@containersevilla.es">Soporte técnico</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4>Zonas de Servicio</h4>
+        <ul>
+          <li>Sevilla Capital</li>
+          <li>Dos Hermanas</li>
+          <li>Alcalá de Guadaíra</li>
+          <li>Mairena del Aljarafe</li>
+          <li>Utrera</li>
+          <li>Área metropolitana</li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4>¿Eres Proveedor?</h4>
+        <p>Únete a nuestra red de proveedores verificados</p>
+        <a href="mailto:proveedores@containersevilla.es" class="provider-cta">
+          Contacta con nosotros
+        </a>
+        <div class="social-links">
+          <a href="#" aria-label="LinkedIn">💼</a>
+          <a href="#" aria-label="WhatsApp">📱</a>
+          <a href="#" aria-label="Email">📧</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-legal">
+        <a href="/politica-privacidad">Política de Privacidad</a>
+        <a href="/terminos-uso">Términos de Uso</a>
+        <a href="/cookies">Política de Cookies</a>
+      </div>
+      <div class="footer-copy">
+        <p>&copy; 2024 ContainerSevilla. Todos los derechos reservados.</p>
+        <p class="footer-disclaimer">
+          Servicio en desarrollo. Los precios mostrados son estimaciones.
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: var(--neutral-dark);
+    color: white;
+    padding: 3rem 0 1rem;
+  }
+
+  .footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .footer-section h3 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .footer-section h4 {
+    color: white;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+  }
+
+  .footer-section p {
+    color: #adb5bd;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  .contact-info a {
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .contact-info a:hover {
+    text-decoration: underline;
+  }
+
+  .footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .footer-section ul li {
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-section ul li a {
+    color: #adb5bd;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .footer-section ul li a:hover {
+    color: var(--primary-color);
+  }
+
+  .provider-cta {
+    display: inline-block;
+    background: var(--primary-color);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    margin: 1rem 0;
+    transition: background-color 0.3s ease;
+  }
+
+  .provider-cta:hover {
+    background: #e55a2b;
+  }
+
+  .social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .social-links a {
+    font-size: 1.5rem;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+  }
+
+  .social-links a:hover {
+    transform: scale(1.2);
+  }
+
+  .footer-bottom {
+    border-top: 1px solid #495057;
+    padding-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .footer-legal {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .footer-legal a {
+    color: #adb5bd;
+    text-decoration: none;
+    font-size: 0.9rem;
+  }
+
+  .footer-legal a:hover {
+    color: white;
+  }
+
+  .footer-copy {
+    text-align: right;
+  }
+
+  .footer-copy p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #6c757d;
+  }
+
+  .footer-disclaimer {
+    font-size: 0.8rem !important;
+    font-style: italic;
+  }
+
+  @media (max-width: 768px) {
+    .footer {
+      padding: 2rem 0 1rem;
+    }
+
+    .footer-content {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .footer-bottom {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .footer-legal {
+      justify-content: center;
+    }
+
+    .footer-copy {
+      text-align: center;
+    }
+  }
+</style>

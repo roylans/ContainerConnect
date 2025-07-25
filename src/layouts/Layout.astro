@@ -1,0 +1,149 @@
+---
+export interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+
+// Import the CSS file
+import '../styles/components.css';
+---
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Alquiler de contenedores de obras en Sevilla. La mejor plataforma para contenedores de obras, escombros y construcción. Mejor precio garantizado, entrega rápida." />
+    <meta name="keywords" content="contenedores de obras sevilla, contenedores obras sevilla, alquiler contenedores obras sevilla, contenedores construccion sevilla, contenedores escombros sevilla" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Contenedores de Obras Sevilla - Alquiler | Próximamente" />
+    <meta property="og:description" content="Alquiler de contenedores de obras en Sevilla. Sé el primero en acceder a nuestra plataforma que conecta tu obra con los mejores proveedores locales." />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_ES" />
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json" is:inline>
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "ContainerSevilla",
+      "description": "Marketplace especializado en alquiler de contenedores de obras en Sevilla",
+      "areaServed": {
+        "@type": "City",
+        "name": "Sevilla",
+        "addressCountry": "ES"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Sevilla",
+        "addressCountry": "ES"
+      },
+      "serviceType": "Alquiler de contenedores de obras",
+      "keywords": "contenedores de obras, contenedores construcción, alquiler contenedores Sevilla"
+    }
+    </script>
+    
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID" is:inline></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    --primary-color: #FF6B35;
+    --secondary-color: #2E86AB;
+    --success-color: #28A745;
+    --warning-color: #FFC107;
+    --error-color: #DC3545;
+    --neutral-light: #F8F9FA;
+    --neutral-medium: #6C757D;
+    --neutral-dark: #212529;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  html {
+    font-family: 'Open Sans', system-ui, sans-serif;
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: var(--neutral-dark);
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    line-height: 1.2;
+    margin: 0 0 1rem 0;
+  }
+  
+  .btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  .btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+  }
+  
+  .btn-primary:hover {
+    background-color: #e55a2b;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 107, 53, 0.3);
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+  
+  .section {
+    padding: 4rem 0;
+  }
+  
+  @media (max-width: 768px) {
+    .section {
+      padding: 2rem 0;
+    }
+    
+    .container {
+      padding: 0 1rem;
+    }
+  }
+</style>
