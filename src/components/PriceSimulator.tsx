@@ -65,7 +65,7 @@ const PriceSimulator = () => {
     <section className="section price-simulator">
       <div className="container">
         <div className="simulator-content">
-          <h2 className="section-title">Simulador de Precios - Contenedores de Obras</h2>
+          <h2 className="section-title">Simulador de Precios </h2>
           <p className="simulator-subtitle">
             Obtén una estimación de precios para contenedores de obras en España
           </p>

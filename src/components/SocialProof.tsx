@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 const SocialProof = () => {
-  const [registrations, setRegistrations] = useState(147);
+  const [registrations, setRegistrations] = useState(100);
   const [recentSignups, setRecentSignups] = useState([
     { name: "Construcciones Madrid S.L.", location: "Madrid", time: "hace 2 horas" },
     { name: "Reformas García", location: "Barcelona", time: "hace 4 horas" },

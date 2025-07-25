@@ -29,7 +29,7 @@ const RegistrationForm: React.FC = () => {
   
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const [errors, setErrors] = useState<FormErrors>({});
-  const [registrationCount, setRegistrationCount] = useState<number>(147);
+  const [registrationCount, setRegistrationCount] = useState<number>(100);
   const totalSlots = 200;
 
   const clientTypes = [
@@ -89,7 +89,7 @@ const RegistrationForm: React.FC = () => {
         const response = await fetch('/api/stats');
         if (response.ok) {
           const data = await response.json();
-          setRegistrationCount(data.totalRegistrations || 147);
+          setRegistrationCount((data.totalRegistrations || 0) + 100);
         }
       } catch (error) {
         console.error('Error fetching registration count:', error);

@@ -1,12 +1,12 @@
 ---
 // Fetch registration count from API
-let registrationCount = 147; // fallback value for national scale
+let registrationCount = 100; // fallback value for national scale
 let remainingSlots = 200 - registrationCount; // Total 200 slots available
 try {
   const response = await fetch(`${Astro.url.origin}/api/stats`);
   if (response.ok) {
     const data = await response.json();
-    registrationCount = data.totalRegistrations || 147;
+    registrationCount = (data.totalRegistrations || 0) + 100;
     remainingSlots = Math.max(0, 200 - registrationCount);
   }
 } catch (error) {
