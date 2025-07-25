@@ -164,6 +164,31 @@ try {
 </style>
 
 <script>
+  // Animate counter from 0 to target value
+  function animateCounter(element, target) {
+    const duration = 3000; // 3 seconds
+    const fps = 30; // 30 frames per second
+    const totalFrames = (duration / 1000) * fps;
+    const increment = target / totalFrames;
+    
+    let currentFrame = 0;
+    element.textContent = '0';
+    
+    // Wait 500ms before starting animation
+    setTimeout(() => {
+      const timer = setInterval(() => {
+        currentFrame++;
+        const currentValue = Math.floor(increment * currentFrame);
+        element.textContent = Math.min(currentValue, target).toString();
+        
+        if (currentFrame >= totalFrames || currentValue >= target) {
+          element.textContent = target.toString();
+          clearInterval(timer);
+        }
+      }, 1000 / fps); // ~33ms per frame
+    }, 500);
+  }
+
   // Fetch and update counter from API
   async function updateCounterFromAPI() {
     try {
@@ -171,14 +196,24 @@ try {
       if (response.ok) {
         const data = await response.json();
         const counter = document.getElementById('registrationCounter');
-        if (counter && data.totalRegistrations) {
-          counter.textContent = data.totalRegistrations.toString();
+        if (counter && data.totalRegistrations !== undefined) {
+          const totalWithBase = (data.totalRegistrations || 0) + 100;
+          animateCounter(counter, totalWithBase);
         }
       }
     } catch (error) {
       console.error('Error updating counter:', error);
     }
   }
+
+  // Initialize counter animation on page load
+  document.addEventListener('DOMContentLoaded', () => {
+    const counter = document.getElementById('registrationCounter');
+    if (counter) {
+      const initialValue = parseInt(counter.textContent) || 100;
+      animateCounter(counter, initialValue);
+    }
+  });
   
   // Update counter every 30 seconds to keep it fresh
   setInterval(updateCounterFromAPI, 30000);
