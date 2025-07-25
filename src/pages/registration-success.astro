@@ -1,0 +1,417 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="¡Registro Completado! - Container Connect Sevilla">
+  <main class="registration-success-page">
+    <section class="success-hero">
+      <div class="container">
+        <div class="success-content">
+          <div class="success-icon-wrapper">
+            <div class="success-icon">✅</div>
+            <div class="success-animation"></div>
+          </div>
+          
+          <h1>¡Registro completado!</h1>
+          <p class="success-subtitle">
+            Te has registrado correctamente. Te avisaremos tan pronto como estemos listos para lanzar en Sevilla.
+          </p>
+
+          <div class="success-steps">
+            <h2>Qué esperar a continuación:</h2>
+            <div class="steps-grid">
+              <div class="step-card">
+                <div class="step-icon">📧</div>
+                <h3>Email de confirmación</h3>
+                <p>En los próximos minutos recibirás un email confirmando tu registro</p>
+              </div>
+              
+              <div class="step-card">
+                <div class="step-icon">📈</div>
+                <h3>Updates semanales</h3>
+                <p>Te mantendremos informado sobre nuestro progreso hacia el lanzamiento</p>
+              </div>
+              
+              <div class="step-card">
+                <div class="step-icon">🎯</div>
+                <h3>Acceso prioritario</h3>
+                <p>Serás de los primeros en acceder cuando lancemos oficialmente</p>
+              </div>
+              
+              <div class="step-card">
+                <div class="step-icon">💰</div>
+                <h3>Ofertas especiales</h3>
+                <p>Descuentos exclusivos y condiciones preferenciales para early adopters</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="success-timeline">
+            <h2>Timeline de lanzamiento:</h2>
+            <div class="timeline">
+              <div class="timeline-item completed">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                  <h4>Pre-registro abierto</h4>
+                  <span class="timeline-date">Diciembre 2024</span>
+                  <p>Recopilando interés y validando demanda</p>
+                </div>
+              </div>
+              
+              <div class="timeline-item active">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                  <h4>Preparación operativa</h4>
+                  <span class="timeline-date">Enero 2025</span>
+                  <p>Adquisición de contenedores y logística</p>
+                </div>
+              </div>
+              
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                  <h4>Lanzamiento beta</h4>
+                  <span class="timeline-date">Febrero 2025</span>
+                  <p>Primeros servicios para usuarios registrados</p>
+                </div>
+              </div>
+              
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                  <h4>Lanzamiento completo</h4>
+                  <span class="timeline-date">Marzo 2025</span>
+                  <p>Servicio completo disponible en Sevilla</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="success-actions">
+            <a href="/" class="btn btn-primary">
+              <span class="btn-icon">🏠</span>
+              Volver al inicio
+            </a>
+            
+            <div class="social-share">
+              <p>¡Comparte con otros que puedan estar interesados!</p>
+              <div class="share-buttons">
+                <a href="https://wa.me/?text=¡Me%20he%20registrado%20en%20Container%20Connect%20Sevilla!%20Alquiler%20de%20contenedores%20fácil%20y%20rápido.%20Regístrate%20aquí:%20" 
+                   target="_blank" 
+                   class="share-btn whatsapp">
+                  <span>📱</span> WhatsApp
+                </a>
+                
+                <a href="mailto:?subject=Container Connect Sevilla&body=Te puede interesar este servicio de alquiler de contenedores en Sevilla"
+                   class="share-btn email">
+                  <span>📧</span> Email
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .registration-success-page {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #FF6B35 0%, #2E86AB 100%);
+    display: flex;
+    align-items: center;
+    padding: 2rem 0;
+  }
+
+  .success-hero {
+    width: 100%;
+  }
+
+  .success-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    color: white;
+  }
+
+  .success-icon-wrapper {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 2rem;
+  }
+
+  .success-icon {
+    font-size: 4rem;
+    display: block;
+    animation: bounce 2s infinite;
+  }
+
+  .success-animation {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120px;
+    height: 120px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
+  }
+
+  @keyframes pulse {
+    0% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+    100% { transform: translate(-50%, -50%) scale(1.5); opacity: 0; }
+  }
+
+  .success-content h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: white;
+  }
+
+  .success-subtitle {
+    font-size: 1.25rem;
+    margin-bottom: 3rem;
+    opacity: 0.9;
+    line-height: 1.6;
+  }
+
+  .success-steps {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 2.5rem;
+    margin-bottom: 3rem;
+    text-align: left;
+  }
+
+  .success-steps h2 {
+    text-align: center;
+    font-size: 1.75rem;
+    margin-bottom: 2rem;
+    color: white;
+  }
+
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .step-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.3s ease, background 0.3s ease;
+  }
+
+  .step-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.15);
+  }
+
+  .step-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .step-card h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: white;
+  }
+
+  .step-card p {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    line-height: 1.5;
+  }
+
+  .success-timeline {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 2.5rem;
+    margin-bottom: 3rem;
+    text-align: left;
+  }
+
+  .success-timeline h2 {
+    text-align: center;
+    font-size: 1.75rem;
+    margin-bottom: 2rem;
+    color: white;
+  }
+
+  .timeline {
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: rgba(255, 255, 255, 0.3);
+  }
+
+  .timeline-item {
+    position: relative;
+    padding-left: 60px;
+    margin-bottom: 2rem;
+  }
+
+  .timeline-dot {
+    position: absolute;
+    left: 12px;
+    top: 8px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    border: 3px solid rgba(255, 255, 255, 0.5);
+  }
+
+  .timeline-item.completed .timeline-dot {
+    background: #4CAF50;
+    border-color: #4CAF50;
+  }
+
+  .timeline-item.active .timeline-dot {
+    background: #FF6B35;
+    border-color: white;
+    animation: pulse-dot 2s infinite;
+  }
+
+  @keyframes pulse-dot {
+    0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(255, 255, 255, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+  }
+
+  .timeline-content h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: white;
+  }
+
+  .timeline-date {
+    font-size: 0.85rem;
+    color: #FFD93D;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+
+  .timeline-content p {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    line-height: 1.5;
+  }
+
+  .success-actions {
+    text-align: center;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+  }
+
+  .btn-primary {
+    background: white;
+    color: #FF6B35;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  }
+
+  .social-share {
+    margin-top: 2rem;
+  }
+
+  .social-share p {
+    margin-bottom: 1rem;
+    opacity: 0.9;
+  }
+
+  .share-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .share-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+  }
+
+  .share-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 768px) {
+    .success-content h1 {
+      font-size: 2.25rem;
+    }
+
+    .success-subtitle {
+      font-size: 1.1rem;
+    }
+
+    .success-steps,
+    .success-timeline {
+      padding: 1.5rem;
+    }
+
+    .steps-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .timeline-item {
+      padding-left: 50px;
+    }
+
+    .share-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+</style>

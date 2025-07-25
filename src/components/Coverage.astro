@@ -1,0 +1,237 @@
+---
+---
+
+<section class="section coverage-section">
+  <div class="container">
+    <div class="coverage-content">
+      <h3 class="coverage-title">Cobertura Nacional</h3>
+      <p class="coverage-subtitle">
+        Expandiendo gradualmente por toda España para darte el mejor servicio
+      </p>
+      
+      <div class="cities-grid">
+        <div class="city-item active">
+          <span class="city-name">Madrid</span>
+          <span class="city-status active">✓ Activo</span>
+        </div>
+        
+        <div class="city-item active">
+          <span class="city-name">Barcelona</span>
+          <span class="city-status active">✓ Activo</span>
+        </div>
+        
+        <div class="city-item coming-soon">
+          <span class="city-name">Valencia</span>
+          <span class="city-status coming-soon">🔄 Próximamente</span>
+        </div>
+        
+        <div class="city-item coming-soon">
+          <span class="city-name">Sevilla</span>
+          <span class="city-status coming-soon">🔄 Próximamente</span>
+        </div>
+        
+        <div class="city-item coming-soon">
+          <span class="city-name">Bilbao</span>
+          <span class="city-status coming-soon">🔄 Próximamente</span>
+        </div>
+        
+        <div class="city-item coming-soon">
+          <span class="city-name">Zaragoza</span>
+          <span class="city-status coming-soon">🔄 Próximamente</span>
+        </div>
+        
+        <div class="city-item coming-soon">
+          <span class="city-name">Málaga</span>
+          <span class="city-status coming-soon">🔄 Próximamente</span>
+        </div>
+        
+        <div class="city-item coming-soon">
+          <span class="city-name">Murcia</span>
+          <span class="city-status coming-soon">🔄 Próximamente</span>
+        </div>
+        
+        <div class="city-item development">
+          <span class="city-name">+45 ciudades más</span>
+          <span class="city-status development">📅 En desarrollo</span>
+        </div>
+      </div>
+      
+      <div class="coverage-note">
+        <p>
+          📍 <strong>¿Tu ciudad no aparece?</strong> Regístrate igualmente - priorizamos el lanzamiento según la demanda registrada.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .coverage-section {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 4rem 0;
+  }
+
+  .coverage-content {
+    text-align: center;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .coverage-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--neutral-dark);
+    margin-bottom: 1rem;
+  }
+
+  .coverage-subtitle {
+    font-size: 1.2rem;
+    color: var(--neutral-medium);
+    margin-bottom: 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .city-item {
+    background: white;
+    border-radius: 15px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .city-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: #dee2e6;
+    transition: background 0.3s ease;
+  }
+
+  .city-item.active::before {
+    background: linear-gradient(90deg, #28a745, #20c997);
+  }
+
+  .city-item.coming-soon::before {
+    background: linear-gradient(90deg, #FF6B35, #ffc107);
+  }
+
+  .city-item.development::before {
+    background: linear-gradient(90deg, #6c757d, #adb5bd);
+  }
+
+  .city-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  }
+
+  .city-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--neutral-dark);
+    text-align: center;
+  }
+
+  .city-status {
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    text-align: center;
+  }
+
+  .city-status.active {
+    background: #d4edda;
+    color: #155724;
+  }
+
+  .city-status.coming-soon {
+    background: #fff3cd;
+    color: #856404;
+  }
+
+  .city-status.development {
+    background: #e2e3e5;
+    color: #495057;
+  }
+
+  .coverage-note {
+    background: rgba(255, 107, 53, 0.1);
+    border: 2px solid rgba(255, 107, 53, 0.2);
+    border-radius: 15px;
+    padding: 1.5rem;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .coverage-note p {
+    margin: 0;
+    color: var(--neutral-dark);
+    font-size: 1rem;
+  }
+
+  .coverage-note strong {
+    color: #FF6B35;
+  }
+
+  @media (max-width: 768px) {
+    .coverage-section {
+      padding: 3rem 0;
+    }
+
+    .coverage-title {
+      font-size: 2rem;
+    }
+
+    .coverage-subtitle {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+    }
+
+    .cities-grid {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+
+    .city-item {
+      padding: 1rem;
+    }
+
+    .city-name {
+      font-size: 1rem;
+    }
+
+    .city-status {
+      font-size: 0.85rem;
+    }
+
+    .coverage-note {
+      padding: 1rem;
+      margin: 0 1rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .cities-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

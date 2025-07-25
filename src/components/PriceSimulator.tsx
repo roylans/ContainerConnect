@@ -1,8 +1,10 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const PriceSimulator = () => {
   const [selectedSize, setSelectedSize] = useState('5m3');
   const [selectedDuration, setSelectedDuration] = useState('1-semana');
+  const [registrationCount, setRegistrationCount] = useState<number>(147);
+  const totalSlots = 200;
 
   const sizes = [
     { value: '3m3', label: '3m³', description: 'Ideal para pequeñas reformas' },
@@ -42,13 +44,30 @@ const PriceSimulator = () => {
 
   const priceRange = getPriceRange();
 
+  // Fetch current registration count
+  useEffect(() => {
+    const fetchRegistrationCount = async () => {
+      try {
+        const response = await fetch('/api/stats');
+        if (response.ok) {
+          const data = await response.json();
+          setRegistrationCount(data.totalRegistrations || 147);
+        }
+      } catch (error) {
+        console.error('Error fetching registration count:', error);
+      }
+    };
+
+    fetchRegistrationCount();
+  }, []);
+
   return (
     <section className="section price-simulator">
       <div className="container">
         <div className="simulator-content">
           <h2 className="section-title">Simulador de Precios - Contenedores de Obras</h2>
           <p className="simulator-subtitle">
-            Obtén una estimación de precios para contenedores de obras en Sevilla
+            Obtén una estimación de precios para contenedores de obras en España
           </p>
 
           <div className="simulator-form">
@@ -103,7 +122,7 @@ const PriceSimulator = () => {
                 </span>
               </div>
               <div className="price-disclaimer">
-                * Precios aproximados. Confirmaremos tarifas exactas al lanzar
+                * Precios varían por zona. Confirmaremos tarifas exactas de tu área al lanzar
               </div>
             </div>
             
@@ -125,7 +144,7 @@ const PriceSimulator = () => {
 
           <div className="simulator-cta">
             <a href="#registro" className="btn btn-primary">
-              Bloquear Este Precio GRATIS
+              Bloquear Este Precio GRATIS ({Math.max(0, totalSlots - registrationCount)} plazas restantes)
             </a>
             <p>Asegura tu precio preferencial registrándote ahora</p>
           </div>

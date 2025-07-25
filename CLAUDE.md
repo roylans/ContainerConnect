@@ -4,13 +4,13 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Development Commands
 
-This is an Astro-based project using React components and Tailwind CSS. Since there are no npm scripts defined in package.json, use Astro CLI commands directly:
+This is an Astro-based project using React components and Tailwind CSS with npm scripts:
 
-- **Development server**: `npx astro dev`
-- **Build**: `npx astro build`
-- **Preview build**: `npx astro preview`
-- **Type checking**: `npx astro check`
-- **Add integrations**: `npx astro add [integration-name]`
+- **Development server**: `npm run dev`
+- **Build**: `npm run build`
+- **Preview build**: `npm run preview`
+- **Type checking**: `npm run check`
+- **Add integrations**: `npm run add [integration-name]`
 
 ## Architecture Overview
 
@@ -20,6 +20,7 @@ This is a Spanish container rental marketplace landing page built as an Astro st
 - **Framework**: Astro v5 with static output
 - **UI Components**: Mix of Astro components (.astro) and React components (.jsx)
 - **Styling**: Tailwind CSS v4 + custom CSS in `src/styles/components.css`
+- **Database**: Supabase (PostgreSQL with real-time subscriptions)
 - **Fonts**: Montserrat (headings) and Open Sans (body text)
 
 ### Project Structure
@@ -27,6 +28,10 @@ This is a Spanish container rental marketplace landing page built as an Astro st
 - **Components**: Located in `src/components/` - mix of Astro and React components
 - **Layouts**: Base layout in `src/layouts/Layout.astro` with SEO, meta tags, and global styles
 - **Styles**: Global CSS variables and component styles in `src/styles/components.css`
+- **Database**: 
+  - Client-side Supabase configuration in `src/lib/supabase.js`
+  - Server-side Supabase configuration with service role in `src/lib/supabase-server.js`
+- **API Routes**: Located in `src/pages/api/` for server-side operations
 
 ### Component Architecture
 The main page (`index.astro`) imports and renders components in this order:
@@ -60,8 +65,13 @@ React components are hydrated with `client:load` directive for interactivity:
 - Interactive price simulator
 - Social proof elements with simulated activity
 
+### API Routes
+- **POST /api/registrations** - Save user registrations to database using service role
+- **GET /api/stats** - Get registration statistics and counts
+
 ### Development Notes
 - Components use semantic HTML and ARIA attributes for accessibility
 - Images sourced from Unsplash with proper attribution
 - Google Analytics placeholder (GA_MEASUREMENT_ID needs configuration)
-- Registration counter increments automatically for demo purposes
+- API routes use Supabase service role key for server-side database operations
+- Environment variables required: SUPABASE_URL, SUPABASE_ANON_KEY, SUPABASE_SERVICE_ROLE_KEY

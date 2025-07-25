@@ -1,20 +1,13 @@
 import { useState, useEffect } from 'react';
 
 const SocialProof = () => {
-  const [registrations, setRegistrations] = useState(125);
+  const [registrations, setRegistrations] = useState(147);
   const [recentSignups, setRecentSignups] = useState([
-    { name: "Construcciones Sevilla S.L.", location: "Sevilla Capital", time: "hace 2 horas" },
-    { name: "Reformas García", location: "Dos Hermanas", time: "hace 4 horas" },
-    { name: "Particular", location: "Alcalá de Guadaíra", time: "hace 6 horas" },
+    { name: "Construcciones Madrid S.L.", location: "Madrid", time: "hace 2 horas" },
+    { name: "Reformas García", location: "Barcelona", time: "hace 4 horas" },
+    { name: "Particular", location: "Valencia", time: "hace 6 horas" },
   ]);
 
-  const zones = [
-    { name: "Sevilla Capital", count: 45, x: "50%", y: "40%" },
-    { name: "Dos Hermanas", count: 28, x: "45%", y: "65%" },
-    { name: "Alcalá de Guadaíra", count: 22, x: "70%", y: "45%" },
-    { name: "Mairena del Aljarafe", count: 18, x: "30%", y: "35%" },
-    { name: "Utrera", count: 12, x: "60%", y: "80%" }
-  ];
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -50,30 +43,6 @@ const SocialProof = () => {
             </div>
           </div>
 
-          <div className="map-section">
-            <h3>Registros por zona en Sevilla</h3>
-            <div className="map-container">
-              <div className="sevilla-map">
-                {zones.map((zone, index) => (
-                  <div
-                    key={index}
-                    className="zone-pin"
-                    style={{
-                      left: zone.x,
-                      top: zone.y
-                    }}
-                  >
-                    <div className="pin-marker">📍</div>
-                    <div className="pin-tooltip">
-                      <strong>{zone.name}</strong>
-                      <br />
-                      {zone.count} registros
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
 
           <div className="recent-activity">
             <h3>Registros recientes</h3>
