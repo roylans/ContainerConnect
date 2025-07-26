@@ -9,52 +9,57 @@
         Expandiendo gradualmente por toda España para darte el mejor servicio
       </p>
       
-      <div class="cities-grid">
-        <div class="city-item active">
-          <span class="city-name">Madrid</span>
-          <span class="city-status active">✓ Activo</span>
-        </div>
-        
-        <div class="city-item active">
-          <span class="city-name">Barcelona</span>
-          <span class="city-status active">✓ Activo</span>
-        </div>
+      <div class="cities-container">
+        <div class="cities-grid">
+          <div class="city-item active">
+            <span class="city-name">Madrid</span>
+            <span class="city-status active">✓ Activo</span>
+          </div>
+          
+          <div class="city-item active">
+            <span class="city-name">Barcelona</span>
+            <span class="city-status active">✓ Activo</span>
+          </div>
 
-         <div class="city-item active">
-          <span class="city-name">Sevilla</span>
-          <span class="city-status active">✓ Activo</span>
+           <div class="city-item active">
+            <span class="city-name">Sevilla</span>
+            <span class="city-status active">✓ Activo</span>
+          </div>
+          
+          <div class="city-item coming-soon">
+            <span class="city-name">Valencia</span>
+            <span class="city-status coming-soon">🔄 Próximamente</span>
+          </div>
+          
+          <div class="city-item coming-soon">
+            <span class="city-name">Bilbao</span>
+            <span class="city-status coming-soon">🔄 Próximamente</span>
+          </div>
+          
+          <div class="city-item coming-soon">
+            <span class="city-name">Zaragoza</span>
+            <span class="city-status coming-soon">🔄 Próximamente</span>
+          </div>
+          
+          <div class="city-item coming-soon">
+            <span class="city-name">Málaga</span>
+            <span class="city-status coming-soon">🔄 Próximamente</span>
+          </div>
+          
+          <div class="city-item coming-soon">
+            <span class="city-name">Murcia</span>
+            <span class="city-status coming-soon">🔄 Próximamente</span>
+          </div>
+          
+          <div class="city-item development">
+            <span class="city-name">+45 ciudades más</span>
+            <span class="city-status development">📅 En desarrollo</span>
+          </div>
         </div>
         
-        <div class="city-item coming-soon">
-          <span class="city-name">Valencia</span>
-          <span class="city-status coming-soon">🔄 Próximamente</span>
-        </div>
-        
-    
-        
-        <div class="city-item coming-soon">
-          <span class="city-name">Bilbao</span>
-          <span class="city-status coming-soon">🔄 Próximamente</span>
-        </div>
-        
-        <div class="city-item coming-soon">
-          <span class="city-name">Zaragoza</span>
-          <span class="city-status coming-soon">🔄 Próximamente</span>
-        </div>
-        
-        <div class="city-item coming-soon">
-          <span class="city-name">Málaga</span>
-          <span class="city-status coming-soon">🔄 Próximamente</span>
-        </div>
-        
-        <div class="city-item coming-soon">
-          <span class="city-name">Murcia</span>
-          <span class="city-status coming-soon">🔄 Próximamente</span>
-        </div>
-        
-        <div class="city-item development">
-          <span class="city-name">+45 ciudades más</span>
-          <span class="city-status development">📅 En desarrollo</span>
+        <!-- Mobile slider indicators -->
+        <div class="slider-indicators">
+          <div class="slider-dots" id="sliderDots"></div>
         </div>
       </div>
       
@@ -95,11 +100,15 @@
     margin-right: auto;
   }
 
+  .cities-container {
+    position: relative;
+    margin-bottom: 3rem;
+  }
+
   .cities-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1.5rem;
-    margin-bottom: 3rem;
   }
 
   .city-item {
@@ -194,6 +203,31 @@
     color: #FF6B35;
   }
 
+  .slider-indicators {
+    display: none;
+    justify-content: center;
+    margin-top: 1.5rem;
+    gap: 0.5rem;
+  }
+
+  .slider-dots {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .slider-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #dee2e6;
+    transition: background 0.3s ease;
+    cursor: pointer;
+  }
+
+  .slider-dot.active {
+    background: #FF6B35;
+  }
+
   @media (max-width: 768px) {
     .coverage-section {
       padding: 3rem 0;
@@ -208,12 +242,28 @@
       margin-bottom: 2rem;
     }
 
+    .cities-container {
+      margin-bottom: 2rem;
+    }
+
     .cities-grid {
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
       gap: 1rem;
+      padding: 0 1rem;
+      margin: 0 -1rem;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .cities-grid::-webkit-scrollbar {
+      display: none;
     }
 
     .city-item {
+      flex: 0 0 280px;
+      scroll-snap-align: center;
       padding: 1rem;
     }
 
@@ -229,11 +279,83 @@
       padding: 1rem;
       margin: 0 1rem;
     }
+
+    .slider-indicators {
+      display: flex;
+    }
   }
 
   @media (max-width: 480px) {
-    .cities-grid {
-      grid-template-columns: 1fr;
+    .city-item {
+      flex: 0 0 260px;
     }
   }
 </style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const citiesGrid = document.querySelector('.cities-grid');
+    const sliderDots = document.getElementById('sliderDots');
+    const cityItems = document.querySelectorAll('.city-item');
+    
+    if (!citiesGrid || !sliderDots || window.innerWidth > 768) return;
+    
+    // Create dots for mobile slider
+    const totalDots = Math.ceil(cityItems.length / 2); // Show 2 items per "page"
+    
+    for (let i = 0; i < totalDots; i++) {
+      const dot = document.createElement('div');
+      dot.className = `slider-dot ${i === 0 ? 'active' : ''}`;
+      dot.addEventListener('click', () => scrollToSlide(i));
+      sliderDots.appendChild(dot);
+    }
+    
+    function scrollToSlide(index) {
+      const itemWidth = cityItems[0].offsetWidth + 16; // item width + gap
+      const scrollPosition = index * itemWidth * 2; // 2 items per slide
+      
+      citiesGrid.scrollTo({
+        left: scrollPosition,
+        behavior: 'smooth'
+      });
+      
+      updateActiveDot(index);
+    }
+    
+    function updateActiveDot(activeIndex) {
+      const dots = sliderDots.querySelectorAll('.slider-dot');
+      dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === activeIndex);
+      });
+    }
+    
+    // Update active dot on scroll
+    citiesGrid.addEventListener('scroll', function() {
+      const itemWidth = cityItems[0].offsetWidth + 16;
+      const currentSlide = Math.round(citiesGrid.scrollLeft / (itemWidth * 2));
+      updateActiveDot(currentSlide);
+    });
+    
+    // Touch/swipe enhancement
+    let startX = 0;
+    let scrollLeft = 0;
+    
+    citiesGrid.addEventListener('touchstart', function(e) {
+      startX = e.touches[0].pageX - citiesGrid.offsetLeft;
+      scrollLeft = citiesGrid.scrollLeft;
+    });
+    
+    citiesGrid.addEventListener('touchmove', function(e) {
+      if (!startX) return;
+      
+      e.preventDefault();
+      const x = e.touches[0].pageX - citiesGrid.offsetLeft;
+      const walk = (x - startX) * 2;
+      citiesGrid.scrollLeft = scrollLeft - walk;
+    });
+    
+    citiesGrid.addEventListener('touchend', function() {
+      startX = 0;
+    });
+  });
+</script>
