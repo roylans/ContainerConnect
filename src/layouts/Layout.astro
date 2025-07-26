@@ -7,6 +7,9 @@ const { title } = Astro.props;
 
 // Import the CSS file
 import '../styles/components.css';
+
+// Get Google Analytics ID from environment variables
+const GA_MEASUREMENT_ID = import.meta.env.GA_MEASUREMENT_ID;
 ---
 
 <!DOCTYPE html>
@@ -47,13 +50,17 @@ import '../styles/components.css';
     </script>
     
     <!-- Google Analytics 4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID" is:inline></script>
-    <script is:inline>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'GA_MEASUREMENT_ID');
-    </script>
+    {GA_MEASUREMENT_ID && (
+      <>
+        <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`} is:inline></script>
+        <script is:inline define:vars={{ GA_MEASUREMENT_ID }}>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', GA_MEASUREMENT_ID);
+        </script>
+      </>
+    )}
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">

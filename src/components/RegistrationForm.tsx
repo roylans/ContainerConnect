@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { trackFormSubmission, trackUserInteraction } from '../lib/analytics';
 
 interface FormData {
   email: string;
@@ -138,19 +139,8 @@ const RegistrationForm: React.FC = () => {
     setIsSubmitting(true);
     
     try {
-      // Track conversion event
-      if (typeof (window as any).gtag !== 'undefined') {
-        (window as any).gtag('event', 'conversion', {
-          'send_to': 'AW-CONVERSION_ID/CONVERSION_LABEL',
-          'value': 25.0,
-          'currency': 'EUR'
-        });
-        
-        (window as any).gtag('event', 'generate_lead', {
-          'currency': 'EUR',
-          'value': 25.0
-        });
-      }
+      // Track form submission attempt
+      trackUserInteraction('registration_form', 'submit_attempt');
       
       // Send to our API
       const response = await fetch('/api/registrations', {
@@ -177,11 +167,18 @@ const RegistrationForm: React.FC = () => {
 
       console.log('Registration successful:', result);
       
+      // Track successful form submission
+      trackFormSubmission('priority_access_registration', true);
+      
       // Redirect to success page
       window.location.href = '/registration-success';
       
     } catch (error: any) {
       console.error('Error submitting form:', error);
+      
+      // Track form submission error
+      trackFormSubmission('priority_access_registration', false);
+      
       if (error.message === 'Email already registered') {
         setErrors({ email: 'Este email ya está registrado' });
       } else {
