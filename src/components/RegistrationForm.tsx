@@ -2,13 +2,11 @@ import React, { useState, useEffect } from 'react';
 
 interface FormData {
   email: string;
-  name: string;
-  phone: string;
-  company: string;
   clientType: string;
   workZone: string;
   frequency: string;
   acceptMarketing: boolean;
+  acceptLegal: boolean;
 }
 
 interface FormErrors {
@@ -18,13 +16,11 @@ interface FormErrors {
 const RegistrationForm: React.FC = () => {
   const [formData, setFormData] = useState<FormData>({
     email: '',
-    name: '',
-    phone: '',
-    company: '',
     clientType: '',
     workZone: '',
     frequency: '',
-    acceptMarketing: false
+    acceptMarketing: false,
+    acceptLegal: false
   });
   
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
@@ -108,10 +104,6 @@ const RegistrationForm: React.FC = () => {
       newErrors.email = 'Email no válido';
     }
     
-    if (!formData.name) {
-      newErrors.name = 'El nombre es requerido';
-    }
-    
     if (!formData.clientType) {
       newErrors.clientType = 'Selecciona el tipo de cliente';
     }
@@ -126,6 +118,10 @@ const RegistrationForm: React.FC = () => {
     
     if (!formData.acceptMarketing) {
       newErrors.acceptMarketing = 'Debes aceptar recibir información';
+    }
+    
+    if (!formData.acceptLegal) {
+      newErrors.acceptLegal = 'Debes aceptar los términos y condiciones y la política de privacidad';
     }
     
     setErrors(newErrors);
@@ -164,9 +160,9 @@ const RegistrationForm: React.FC = () => {
         },
         body: JSON.stringify({
           email: formData.email,
-          name: formData.name,
-          phone: formData.phone,
-          company: formData.company,
+          name: formData.email.split('@')[0],
+          phone: '',
+          company: '',
           location: formData.workZone,
           container_type: formData.clientType,
           notes: `Frecuencia: ${formData.frequency}`
@@ -253,66 +249,11 @@ const RegistrationForm: React.FC = () => {
               {errors.email && <span className="error-message">{errors.email}</span>}
             </div>
 
-            <div className="form-group">
-              <label htmlFor="name">
-                <span className="label-icon">👤</span>
-                Nombre completo *
-              </label>
-              <div className="input-wrapper">
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  placeholder="Tu nombre completo"
-                  className={errors.name ? 'error' : ''}
-                />
-                <div className="input-icon">👤</div>
-              </div>
-              {errors.name && <span className="error-message">{errors.name}</span>}
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="phone">
-                <span className="label-icon">📱</span>
-                Teléfono (opcional)
-              </label>
-              <div className="input-wrapper">
-                <input
-                  type="tel"
-                  id="phone"
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  placeholder="Ej: 600 123 456"
-                />
-                <div className="input-icon">📱</div>
-              </div>
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="company">
-                <span className="label-icon">🏢</span>
-                Empresa (opcional)
-              </label>
-              <div className="input-wrapper">
-                <input
-                  type="text"
-                  id="company"
-                  name="company"
-                  value={formData.company}
-                  onChange={handleChange}
-                  placeholder="Nombre de tu empresa"
-                />
-                <div className="input-icon">🏢</div>
-              </div>
-            </div>
 
             <div className="form-group">
               <label htmlFor="clientType">
                 <span className="label-icon">🏗️</span>
-                Tipo de cliente *
+                ¿Qué tipo de cliente eres? *
               </label>
               <div className="select-wrapper">
                 <select
@@ -337,7 +278,7 @@ const RegistrationForm: React.FC = () => {
             <div className="form-group">
               <label htmlFor="workZone">
                 <span className="label-icon">📍</span>
-                Ciudad/provincia principal *
+                ¿En qué ciudad trabajas principalmente? *
               </label>
               <div className="select-wrapper">
                 <select
@@ -373,7 +314,7 @@ const RegistrationForm: React.FC = () => {
             <div className="form-group">
               <label htmlFor="frequency">
                 <span className="label-icon">🔄</span>
-                Frecuencia estimada *
+                ¿Con qué frecuencia necesitas contenedores? *
               </label>
               <div className="select-wrapper">
                 <select
@@ -412,6 +353,25 @@ const RegistrationForm: React.FC = () => {
                 </span>
               </label>
               {errors.acceptMarketing && <span className="error-message">{errors.acceptMarketing}</span>}
+            </div>
+
+            <div className="form-group checkbox-group">
+              <label className="checkbox-label">
+                <input
+                  type="checkbox"
+                  name="acceptLegal"
+                  checked={formData.acceptLegal}
+                  onChange={handleChange}
+                />
+                <span className="custom-checkbox">
+                  <span className="checkmark">✓</span>
+                </span>
+                <span className="checkbox-text">
+                  <span className="checkbox-icon">📄</span>
+                  Acepto los <a href="/terminos-condiciones" target="_blank" rel="noopener noreferrer" className="legal-link">términos y condiciones</a> y la <a href="/politica-privacidad" target="_blank" rel="noopener noreferrer" className="legal-link">política de privacidad</a> *
+                </span>
+              </label>
+              {errors.acceptLegal && <span className="error-message">{errors.acceptLegal}</span>}
             </div>
 
             <button

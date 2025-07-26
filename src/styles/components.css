@@ -263,6 +263,17 @@
   font-size: 1rem;
 }
 
+.legal-link {
+  color: var(--primary-color);
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.legal-link:hover {
+  color: var(--secondary-color);
+  text-decoration: underline;
+}
+
 .btn-submit {
   margin-top: 1.5rem;
   font-size: 1.1rem;
