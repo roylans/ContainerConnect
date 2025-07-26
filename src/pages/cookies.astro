@@ -1,5 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+
 ---
 
 <Layout title="Política de Cookies - ContainerConnect">
@@ -153,13 +155,11 @@ import Layout from '../layouts/Layout.astro';
             </div>
           </div>
 
-          <!-- Placeholder para futuro script de gestión de cookies -->
-          <div id="cookie-consent-manager" class="cookie-consent-placeholder">
-            <h4>🍪 Gestión de Consentimiento</h4>
-            <p><em>Aquí se integrará el script de gestión de cookies para permitir el control granular del consentimiento.</em></p>
-            <button type="button" class="btn btn-secondary" disabled>
-              Configurar Cookies (Próximamente)
-            </button>
+          <!-- Cookiebot Cookie Declaration -->
+          <div id="cookie-declaration-section">
+            <h4>🍪 Declaración de Cookies</h4>
+            <p>Esta declaración se actualiza automáticamente y muestra todas las cookies utilizadas en este sitio web:</p>
+            <script id="CookieDeclaration" src="https://consent.cookiebot.com/86364c2b-86af-4f26-b52d-b12543e2067d/cd.js" type="text/javascript" async is:inline></script>
           </div>
         </section>
 
@@ -339,6 +339,25 @@ import Layout from '../layouts/Layout.astro';
     text-align: center;
     border-radius: 12px;
     margin: 2rem 0;
+  }
+
+  #cookie-declaration-section {
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+    padding: 2rem;
+    border-radius: 12px;
+    margin: 2rem 0;
+  }
+
+  #cookie-declaration-section h4 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+  }
+
+  #cookie-declaration-section p {
+    margin-bottom: 1.5rem;
+    color: var(--neutral-medium);
   }
 
   .contact-info {
