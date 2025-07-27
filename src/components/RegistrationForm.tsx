@@ -6,6 +6,7 @@ interface FormData {
   clientType: string;
   workZone: string;
   frequency: string;
+  specificNeeds: string;
   acceptMarketing: boolean;
   acceptLegal: boolean;
 }
@@ -20,6 +21,7 @@ const RegistrationForm: React.FC = () => {
     clientType: '',
     workZone: '',
     frequency: '',
+    specificNeeds: '',
     acceptMarketing: false,
     acceptLegal: false
   });
@@ -155,7 +157,7 @@ const RegistrationForm: React.FC = () => {
           company: '',
           location: formData.workZone,
           container_type: formData.clientType,
-          notes: `Frecuencia: ${formData.frequency}`
+          notes: `Frecuencia: ${formData.frequency}${formData.specificNeeds ? ` | Necesidades específicas: ${formData.specificNeeds}` : ''}`
         })
       });
 
@@ -189,7 +191,7 @@ const RegistrationForm: React.FC = () => {
     }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value, type } = e.target;
     const checked = (e.target as HTMLInputElement).checked;
     setFormData(prev => ({
@@ -229,20 +231,17 @@ const RegistrationForm: React.FC = () => {
             <div className="form-group">
               <label htmlFor="email">
                 <span className="label-icon">📧</span>
-                Email *
+                <strong>Email *</strong>
               </label>
-              <div className="input-wrapper">
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  placeholder="tu@email.com"
-                  className={errors.email ? 'error' : ''}
-                />
-                <div className="input-icon">✉️</div>
-              </div>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                placeholder="tu@email.com"
+                className={errors.email ? 'error' : ''}
+              />
               {errors.email && <span className="error-message">{errors.email}</span>}
             </div>
 
@@ -250,7 +249,7 @@ const RegistrationForm: React.FC = () => {
             <div className="form-group">
               <label htmlFor="clientType">
                 <span className="label-icon">🏗️</span>
-                ¿Qué tipo de cliente eres? *
+                <strong>¿Qué tipo de cliente eres? *</strong>
               </label>
               <div className="select-wrapper">
                 <select
@@ -275,7 +274,7 @@ const RegistrationForm: React.FC = () => {
             <div className="form-group">
               <label htmlFor="workZone">
                 <span className="label-icon">📍</span>
-                ¿En qué ciudad trabajas principalmente? *
+                <strong>¿En qué ciudad trabajas principalmente? *</strong>
               </label>
               <div className="select-wrapper">
                 <select
@@ -311,7 +310,7 @@ const RegistrationForm: React.FC = () => {
             <div className="form-group">
               <label htmlFor="frequency">
                 <span className="label-icon">🔄</span>
-                ¿Con qué frecuencia necesitas contenedores? *
+                <strong>¿Con qué frecuencia necesitas contenedores? *</strong>
               </label>
               <div className="select-wrapper">
                 <select
@@ -331,6 +330,25 @@ const RegistrationForm: React.FC = () => {
                 <div className="select-arrow">▼</div>
               </div>
               {errors.frequency && <span className="error-message">{errors.frequency}</span>}
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="specificNeeds">
+                <span className="label-icon">💭</span>
+                <strong>¿Qué necesitas en un servicio de contenedores? (opcional)</strong>
+              </label>
+              <div className="textarea-wrapper">
+                <textarea
+                  id="specificNeeds"
+                  name="specificNeeds"
+                  value={formData.specificNeeds}
+                  onChange={handleChange}
+                  placeholder="Ej. Entrega urgente, contenedores para materiales específicos, gestión de permisos, etc."
+                  rows={3}
+                  maxLength={500}
+                />
+                <div className="char-counter">{formData.specificNeeds.length}/500</div>
+              </div>
             </div>
 
             <div className="form-group checkbox-group">
