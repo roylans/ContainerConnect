@@ -4,9 +4,9 @@ const SocialProof = () => {
   const [totalRegistrations, setTotalRegistrations] = useState(0);
   const [displayCount, setDisplayCount] = useState(0);
   const [recentSignups, setRecentSignups] = useState([
-    { name: "Construcciones Madrid S.L.", location: "Madrid", time: "hace 2 horas" },
-    { name: "Reformas García", location: "Barcelona", time: "hace 4 horas" },
-    { name: "Particular", location: "Sevilla  ", time: "hace 6 horas" },
+    { name: "Construcciones Alturas S.L.", location: "Madrid", time: "hace 2 horas" },
+    { name: "Reformas Gonzalez Gonzalez", location: "Barcelona", time: "hace 4 horas" },
+    { name: "Particular", location: "Sevilla", time: "hace 6 horas" },
   ]);
 
   // Fetch total registration count from API
